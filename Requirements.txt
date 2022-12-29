@@ -1,0 +1,7 @@
+dhooks
+requests
+pyautogui
+pyfiglet
+init
+termcolor
+cprint
