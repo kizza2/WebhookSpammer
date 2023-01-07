@@ -26,7 +26,7 @@
 
 **Spam exemple**:<br>
 <p align="center">
-<img src="https://raw.githubusercontent.com/kizza2/WebhookSpammer/main/lmao.png", width="500", height="500">
+<img src="https://raw.githubusercontent.com/kizza2/WebhookSpammer/main/lmao.png](https://raw.githubusercontent.com/kizza2/WebhookSpammer/main/Spammed%20exemple.png", width="500", height="500">
 </p>
 
 -----
