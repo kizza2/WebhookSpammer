@@ -71,7 +71,7 @@ image2 = 'https://i.imgur.com/K7hZxcm.png'
 image3 = 'https://pbs.twimg.com/media/Bpvdm-QIgAAsoX5.jpg'
 image4 = 'https://i.imgur.com/uAP2Ctf.jpg'
 image5 = 'https://i.imgur.com/IY3kK8M.jpg'
-embed.set_author(name='By|kizzouille#6969| You are CLOWN ', icon_url=image4)
+embed.set_author(name='By|kizzouille| You are CLOWN ', icon_url=image4)
 embed.add_field(name='YOURE A FUCKING CLOWN', value='NOOBY NULLOS SOUS MERDE')
 embed.set_footer(text='FUCK YOU', icon_url=image3)
 embed.set_footer(text='ur so bad', icon_url=image5)
