@@ -1,7 +1,5 @@
 dhooks
-requests
-pyautogui
-pyfiglet
-init
-termcolor
-cprint
+sys
+os
+time
+colorama
