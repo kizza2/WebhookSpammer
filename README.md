@@ -7,6 +7,10 @@
 -----
 
 ### <p align="center">💥 kizza webhook spammer 💥</p>
+---
+### <p align="center">⚡ Update⚡</p>
+ <p align="center"><em>I update this shit program, better code.</a> </p>
+
 
 -----
 
